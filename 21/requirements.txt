@@ -1,0 +1,1 @@
+matplotlib>=3.7   # chỉ cần cho experiments.py (vẽ biểu đồ)
