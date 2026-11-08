@@ -1,0 +1,12 @@
+Dataset: mushrooms
+Thuật toán: hybrid
+Minsup tương đối: 0.5 (tối thiểu 4208 / 8416 giao dịch)
+Thời gian chạy (s): 1.945
+
+Tổng số tập phổ biến: 163
+Số tập theo kích thước k:
+  k = 1: 13
+  k = 2: 43
+  k = 3: 60
+  k = 4: 38
+  k = 5: 9

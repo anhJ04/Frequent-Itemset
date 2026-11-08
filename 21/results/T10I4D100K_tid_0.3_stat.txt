@@ -1,0 +1,7 @@
+Dataset: T10I4D100K
+Thuật toán: tid
+Minsup tương đối: 0.3 (tối thiểu 30000 / 100000 giao dịch)
+Thời gian chạy (s): 1.679
+
+Tổng số tập phổ biến: 0
+Số tập theo kích thước k:
