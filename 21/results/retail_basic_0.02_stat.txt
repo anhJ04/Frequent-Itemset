@@ -1,0 +1,13 @@
+Dataset: retail
+Thuật toán: basic
+Minsup tương đối: 0.02 (tối thiểu 1764 / 88162 giao dịch)
+Thời gian chạy (s): 1.9389
+Bộ nhớ cấp phát (MB): 113.04
+Bộ nhớ cấp phát (bytes): 118529702
+
+Tổng số tập phổ biến: 55
+Số tập theo kích thước k:
+  k = 1: 20
+  k = 2: 22
+  k = 3: 12
+  k = 4: 1

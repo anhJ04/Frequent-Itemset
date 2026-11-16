@@ -1,0 +1,13 @@
+Dataset: skin
+Thuật toán: basic
+Minsup tương đối: 0.01 (tối thiểu 2451 / 245057 giao dịch)
+Thời gian chạy (s): 2.0938
+Bộ nhớ cấp phát (MB): 153.5
+Bộ nhớ cấp phát (bytes): 160956861
+
+Tổng số tập phổ biến: 114
+Số tập theo kích thước k:
+  k = 1: 12
+  k = 2: 42
+  k = 3: 47
+  k = 4: 13

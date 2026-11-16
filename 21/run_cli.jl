@@ -74,6 +74,8 @@ function write_stats(path, res, info) #Thống kê
         println(f, "Minsup tương đối: ", info.minsup,
                 " (tối thiểu ", info.minsup_abs, " / ", info.num_trans, " giao dịch)")
         println(f, "Thời gian chạy (s): ", round(info.seconds, digits = 4))
+        println(f, "Bộ nhớ cấp phát (MB): ", round(info.memory_mb, digits = 2))
+        println(f, "Bộ nhớ cấp phát (bytes): ", info.memory_bytes)
         println(f)
         println(f, "Tổng số tập phổ biến: ", length(res))
         println(f, "Số tập theo kích thước k:")
@@ -106,16 +108,19 @@ minsup_abs = ceil(Int, args["minsup"] * num_trans)
 println("[2/3] Đang chạy thuật toán Apriori (", args["algo"], ") | Minsup tương đối: ",
         args["minsup"], " (Tối thiểu ", minsup_abs, " giao dịch)")
 
-t_start = time()
-res = ALGOS[args["algo"]](transactions, minsup_abs)
-t_elapsed = time() - t_start
+timed_result = @timed ALGOS[args["algo"]](transactions, minsup_abs)
 
-println("[3/3] Hoàn thành trong: ", round(t_elapsed, digits = 4), "s. Tìm thấy ",
-        length(res), " frequent itemsets.")
+res = timed_result.value          # Kết quả trả về của thuật toán
+t_elapsed = timed_result.time     # Thời gian chạy (giây)
+memory_bytes = timed_result.bytes # Tổng bộ nhớ cấp phát (bytes)
+memory_mb = memory_bytes / 1024 / 1024 # Quy đổi ra Megabytes (MB)
+
+println("[3/3] Hoàn thành trong: ", round(t_elapsed, digits = 4), "s | Bộ nhớ cấp phát: ", 
+        round(memory_mb, digits = 2), " MB. Tìm thấy ", length(res), " frequent itemsets.")
 mkpath(dirname(abspath(base)))
 println("Đang ghi danh sách tập phổ biến ra: ", list_path)
 write_spmf(list_path, res)
 println("Đang ghi thống kê ra: ", stat_path)
 write_stats(stat_path, res,
             (dataset = dataset, algo = args["algo"], minsup = args["minsup"],
-             minsup_abs = minsup_abs, num_trans = num_trans, seconds = t_elapsed))
+             minsup_abs = minsup_abs, num_trans = num_trans, seconds = t_elapsed,memory_mb = memory_mb, memory_bytes = memory_bytes))

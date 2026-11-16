@@ -4,10 +4,6 @@ using DataStructures
 
 export apriori_optimized
 
-"""
-Chuyển đổi giao dịch ngang thành dạng dọc (Vertical BitArray).
-Mỗi item quản lý 1 BitVector có độ dài = tổng số giao dịch.
-"""
 function build_item_bitsets(transactions::Vector{Vector{Int}})
     num_trans = length(transactions)
     item_bits = Dict{Int, BitVector}()

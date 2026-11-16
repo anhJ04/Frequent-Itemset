@@ -1,0 +1,12 @@
+Dataset: toy
+Thuật toán: basic
+Minsup tương đối: 0.3 (tối thiểu 2 / 4 giao dịch)
+Thời gian chạy (s): 1.4885
+Bộ nhớ cấp phát (MB): 76.66
+Bộ nhớ cấp phát (bytes): 80380428
+
+Tổng số tập phổ biến: 9
+Số tập theo kích thước k:
+  k = 1: 4
+  k = 2: 4
+  k = 3: 1

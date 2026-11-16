@@ -1,0 +1,9 @@
+Dataset: T10I4D100K
+Thuật toán: tid
+Minsup tương đối: 0.6 (tối thiểu 60000 / 100000 giao dịch)
+Thời gian chạy (s): 1.7114
+Bộ nhớ cấp phát (MB): 82.51
+Bộ nhớ cấp phát (bytes): 86521024
+
+Tổng số tập phổ biến: 0
+Số tập theo kích thước k:
