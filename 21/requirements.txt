@@ -1,1 +1,2 @@
-matplotlib>=3.7   # chỉ cần cho experiments.py (vẽ biểu đồ)
+matplotlib>=3.7
+pandas>=1.5

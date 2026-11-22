@@ -4,6 +4,15 @@ Pkg.activate(@__DIR__)
 include(joinpath(@__DIR__, "src", "Apriori.jl"))
 using .Apriori
 
+const USAGE = """
+Cách dùng:
+  julia --project=. run_cli.jl --input <file|tên dataset> --minsup <0..1> [--algo basic|optimized|tid|hybrid] [--output <đường dẫn>] [--maxlen <k>]
+  julia --project=. run_cli.jl <file|tên dataset> <minsup> [algo]
+
+Ví dụ:
+  julia --project=. run_cli.jl --input data/benchmark/chess.txt --minsup 0.8 --algo hybrid
+  julia --project=. run_cli.jl mushrooms 0.5 optimized -o results/mushrooms_out.txt"""
+
 const BENCH_DIR   = joinpath(@__DIR__, "data", "benchmark")
 const RESULTS_DIR = joinpath(@__DIR__, "results")
 
@@ -19,11 +28,12 @@ end
 
 function parse_args(args)
     params = Dict{String,Any}("input" => "", "minsup" => "0.05",
-                              "algo" => "optimized", "output" => "")
+                              "algo" => "optimized", "output" => "", "maxlen" => "")
     flags = Dict("--input" => "input", "-i" => "input",
                  "--minsup" => "minsup", "-s" => "minsup",
                  "--algo" => "algo", "-a" => "algo",
-                 "--output" => "output", "-o" => "output")
+                 "--output" => "output", "-o" => "output",
+                 "--maxlen" => "maxlen")
     given = Set{String}()
     positional = String[]
 
@@ -49,6 +59,7 @@ function parse_args(args)
     (m === nothing || !(0 < m <= 1)) &&
         fail("minsup phải là số trong khoảng (0, 1], nhận được: $(params["minsup"])\n\n$USAGE")
     params["minsup"] = m
+    params["maxlen"] = isempty(params["maxlen"]) ? nothing : parse(Int, params["maxlen"])
     return params
 end
 
@@ -108,7 +119,7 @@ minsup_abs = ceil(Int, args["minsup"] * num_trans)
 println("[2/3] Đang chạy thuật toán Apriori (", args["algo"], ") | Minsup tương đối: ",
         args["minsup"], " (Tối thiểu ", minsup_abs, " giao dịch)")
 
-timed_result = @timed ALGOS[args["algo"]](transactions, minsup_abs)
+timed_result = @timed ALGOS[args["algo"]](transactions, minsup_abs; max_len = args["maxlen"])
 
 res = timed_result.value          # Kết quả trả về của thuật toán
 t_elapsed = timed_result.time     # Thời gian chạy (giây)
