@@ -1,0 +1,10 @@
+Dataset: covid_k6_w100_s95
+Thuật toán: hybrid
+Minsup tương đối: 0.1 (tối thiểu 32 / 314 giao dịch)
+Thời gian chạy (s): 1.5868
+Bộ nhớ cấp phát (MB): 94.12
+Bộ nhớ cấp phát (bytes): 98695360
+
+Tổng số tập phổ biến: 12
+Số tập theo kích thước k:
+  k = 1: 12

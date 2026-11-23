@@ -1,0 +1,19 @@
+Dataset: chess
+Thuật toán: hybrid
+Minsup tương đối: 0.8 (tối thiểu 2557 / 3196 giao dịch)
+Thời gian chạy (s): 3.4027
+Bộ nhớ cấp phát (MB): 547.1
+Bộ nhớ cấp phát (bytes): 573673952
+
+Tổng số tập phổ biến: 8227
+Số tập theo kích thước k:
+  k = 1: 19
+  k = 2: 141
+  k = 3: 566
+  k = 4: 1383
+  k = 5: 2130
+  k = 6: 2104
+  k = 7: 1314
+  k = 8: 481
+  k = 9: 85
+  k = 10: 4

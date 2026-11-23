@@ -1,0 +1,14 @@
+Dataset: covid_k3
+Thuật toán: hybrid
+Minsup tương đối: 0.7 (tối thiểu 418 / 596 giao dịch)
+Thời gian chạy (s): 2.0675
+Bộ nhớ cấp phát (MB): 142.79
+Bộ nhớ cấp phát (bytes): 149722432
+
+Tổng số tập phổ biến: 2527
+Số tập theo kích thước k:
+  k = 1: 41
+  k = 2: 458
+  k = 3: 1149
+  k = 4: 769
+  k = 5: 110

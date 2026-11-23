@@ -1,0 +1,11 @@
+Dataset: covid_k4_w150_s75
+Thuật toán: hybrid
+Minsup tương đối: 0.6 (tối thiểu 239 / 397 giao dịch)
+Thời gian chạy (s): 2.1063
+Bộ nhớ cấp phát (MB): 96.25
+Bộ nhớ cấp phát (bytes): 100921792
+
+Tổng số tập phổ biến: 50
+Số tập theo kích thước k:
+  k = 1: 47
+  k = 2: 3
